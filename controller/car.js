@@ -14,7 +14,7 @@ exports.add =async (req, res)=>{
             perevod: req.body.perevod,
             yurgani: req.body.yurgani,
             narxi: req.body.narxi,
-            photo:`http://localhost:4001/public/image/${req.file.path}`,
+            photo:`https://auto012.herokuapp.com//public/image/${req.file.path}`,
             aksiya: req.body.aksiya,
             opisaniya: req.body.opisaniya,
         })

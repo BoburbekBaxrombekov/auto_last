@@ -20,7 +20,7 @@ module.exports = {
             const {
                     madel, marka, color, yili, divigitel, yoqilgi, transmission, kuzuv, perevod, yurgani, narxi, aksiya, opisaniya, ismiz, gmail
             } = req.body
-            const photo = `http://localhost:4001/public/image/${req.file.filename}`
+            const photo = `https://auto012.herokuapp.com//public/image/${req.file.filename}`
             await newCars(madel, marka, color, yili, divigitel, yoqilgi, transmission, kuzuv, perevod, yurgani, narxi, aksiya, opisaniya, ismiz, gmail, photo)
             res.send('ok')
         } catch(err) {

@@ -20,7 +20,7 @@ module.exports = {
             const {
                 ismizuz, ismizru, data
             } = req.body
-            const photo = `http://localhost:4001/public/image/${req.file.filename}`
+            const photo = `https://auto012.herokuapp.com//public/image/${req.file.filename}`
             await newClients(ismizuz, ismizru, data, photo)
             res.send('ok')
         } catch(err) {
