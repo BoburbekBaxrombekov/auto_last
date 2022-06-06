@@ -1,15 +1,15 @@
 const {
-    allClients,
-    clientsOne,
-    newClients,
-    editClients,
-    delClients
+    allOrders,
+    ordersOne,
+    newOrder,
+    editOrders,
+    delOrders
 } = require('./model')
 
 module.exports = {
     GET: async(req, res) => {
         try {
-            const news = await allClients()
+            const news = await allOrders()
             res.send(news)
         } catch(err) {
             console.log(err.message)
@@ -18,10 +18,10 @@ module.exports = {
     POST: async(req, res) => {
         try {
             const {
-                ismizuz, ismizru, data
+                client_name, client_phone
             } = req.body
-            const photo = `http://localhost:4001/public/image/${req.file.filename}`
-            await newClients(ismizuz, ismizru, data, photo)
+            console.log(client_name, client_phone);
+            await newOrder(client_name, client_phone)
             res.send('ok')
         } catch(err) {
             console.log(err.message)
@@ -29,7 +29,7 @@ module.exports = {
     },
     DELETE: async(req, res) => {
         try {
-            await delClients(req.params.id)
+            await delOrders(req.params.id)
             res.sendStatus(200)
         } catch(err) {
             console.log(err.message)
@@ -39,9 +39,9 @@ module.exports = {
         try {
             const {id} = req.params
             const {
-                ismizuz, ismizru, data, photo
+                client_name, client_phone
             } = req.body
-            await editClients(ismizuz, ismizru, data, photo, id)
+            await editOrders(client_name, client_phone, id)
             res.sendStatus(200)
         }catch(error){
             console.log(error.message);
@@ -49,7 +49,7 @@ module.exports = {
     },
     GET_ONE: async(req, res) => {
         try {
-            const news = await clientsOne(req.params.id)
+            const news = await ordersOne(req.params.id)
             res.send(news)
         } catch(err) {
             console.log(err.message)

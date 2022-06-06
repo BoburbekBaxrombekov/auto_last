@@ -28,7 +28,7 @@ module.exports = {
     },
     DELETE: async(req, res) => {
         try {
-            await delClients(req.body.id)
+            await delClients(req.params.id)
             res.sendStatus(200)
         } catch(err) {
             console.log(err.message)

@@ -18,8 +18,9 @@ module.exports = {
     POST: async(req, res) => {
         try {
             const {
-                    madel, marka, color, yili, divigitel, yoqilgi, transmission, kuzuv, perevod, yurgani, narxi, aksiya, opisaniya, ismiz, gmail, photo
+                    madel, marka, color, yili, divigitel, yoqilgi, transmission, kuzuv, perevod, yurgani, narxi, aksiya, opisaniya, ismiz, gmail
             } = req.body
+            const photo = `http://localhost:4001/public/image/${req.file.filename}`
             await newCars(madel, marka, color, yili, divigitel, yoqilgi, transmission, kuzuv, perevod, yurgani, narxi, aksiya, opisaniya, ismiz, gmail, photo)
             res.send('ok')
         } catch(err) {
@@ -28,7 +29,7 @@ module.exports = {
     },
     DELETE: async(req, res) => {
         try {
-            await delCars(req.body.id)
+            await delCars(req.params.id)
             res.sendStatus(200)
         } catch(err) {
             console.log(err.message)

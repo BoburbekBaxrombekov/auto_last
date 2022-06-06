@@ -31,4 +31,11 @@ CREATE TABLE car(
     date text DEFAULT NOW()::time + interval '5 hours'
 )
 
+CREATE TABLE orders(
+    id serial PRIMARY KEY,
+    client_name text,
+    client_phone int,
+    date text DEFAULT NOW()::time + interval '5 hours'
+)
+
 INSERT INTO users(name, gmail, password) VALUES ('tester', 'abc@gmail.com', 'parol123')
